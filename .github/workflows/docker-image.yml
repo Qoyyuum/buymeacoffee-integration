@@ -15,4 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag qoyyuum/buymeacoffee:$(date +%s)
+    - uses: docker/build-push-action@v5.1.0
+      with:
+        tags: qoyyuum/buymeacoffee:$(date +%s)
+        push: true
